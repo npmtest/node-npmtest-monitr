@@ -1,1 +1,39 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-monitr",     "homepage": "https://github.com/npmtest/node-npmtest-monitr",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-monitr.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  monitr (v1.0.0)  [![npm package](https://img.shields.io/npm/v/npmtest-monitr.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-monitr) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-monitr.svg)](https://travis-ci.org/npmtest/node-npmtest-monitr)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-monitr",
+    "keywords": [
+        "coverage",
+        "test",
+        "monitr"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_monitr.js",
+    "name": "npmtest-monitr",
+    "nameAlias": "npmtest_monitr",
+    "nameOriginal": "npmtest-monitr",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-monitr.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
